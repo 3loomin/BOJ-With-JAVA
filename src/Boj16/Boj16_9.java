@@ -1,12 +1,11 @@
+package Boj16;
+
 import java.io.*;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
 
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
-
+public class Boj16_9 {
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -51,6 +50,4 @@ public class Main {
         bw.close();
 
     }
-
-
 }
