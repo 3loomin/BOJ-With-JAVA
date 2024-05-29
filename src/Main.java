@@ -1,5 +1,7 @@
 import java.io.*;
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.StringTokenizer;
 
 
 public class Main {
@@ -8,48 +10,68 @@ public class Main {
     }
 
     public static void solution() throws IOException {
+        class Boj16{
+            int bal;
+            int pap;
+
+            public int getBal() {
+                return bal;
+            }
+
+            public void setBal(int bal) {
+                this.bal = bal;
+            }
+
+            public int getPap() {
+                return pap;
+            }
+
+            public void setPap(int pap) {
+                this.pap = pap;
+            }
+        }
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        Deque<Integer> deque = new ArrayDeque<>();
 
+        Deque<Boj16> deque = new ArrayDeque<>();
         int n = Integer.parseInt(st.nextToken());
 
-        for (int i = 0; i < n; i++) {
-            st = new StringTokenizer(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        for (int i = 1; i <= n; i++) {
+            Boj16 boj16 = new Boj16();
             int a = Integer.parseInt(st.nextToken());
-            switch (a) {
-                case 1 -> deque.addFirst(Integer.valueOf(st.nextToken()));
-                case 2 -> deque.addLast(Integer.valueOf(st.nextToken()));
-                case 3 -> {
-                    if(!deque.isEmpty()) bw.write(deque.pop() + "\n");
-                    else bw.write(-1 + "\n");
-                }
-                case 4 -> {
-                    if(!deque.isEmpty()) bw.write(deque.pollLast() + "\n");
-                    else bw.write(-1 + "\n");
-                }
-                case 5 -> bw.write(deque.size() + "\n");
-                case 6 -> {
-                    if (deque.isEmpty()) bw.write(1 + "\n");
-                    else bw.write(0 + "\n");
-                }
-                case 7 ->{
-                    if(!deque.isEmpty()) bw.write(deque.getFirst() + "\n");
-                    else bw.write(-1 + "\n");
-                }
-                case 8 -> {
-                    if(!deque.isEmpty()) bw.write(deque.getLast() + "\n");
-                    else bw.write(-1 + "\n");
-                }
+            boj16.setBal(i);
+            boj16.setPap(a);
+            deque.add(boj16);
+        }
 
-            }
+        Boj16 poll1 = deque.poll();
+        bw.write(poll1.bal + " ");
+        int a = poll1.pap;
+        while(deque.size() > 0) {
+           if(a > 0){
+               for (int i = 1; i < a; i++) {
+                   deque.add(deque.poll());
+               }
+               Boj16 poll = deque.poll();
+               a = poll.pap;
+               bw.write(poll.bal + " ");
+           }
+           else if (a < 0) {
+               for (int i = 1; i < -a ; i++) {
+                   deque.addFirst(deque.pollLast());
+               }
+               Boj16 boj16 = deque.pollLast();
+               a = boj16.pap;
+               bw.write(boj16.bal + " ");
+           }
 
         }
+
         bw.flush();
         bw.close();
-
     }
 
 
