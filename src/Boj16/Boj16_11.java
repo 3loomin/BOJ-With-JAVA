@@ -1,13 +1,11 @@
+package Boj16;
+
 import java.io.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.StringTokenizer;
 
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
+public class Boj16_11 {
 
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,10 +34,7 @@ public class Main {
             deque.addFirst(tmp);
             bw.write(deque.pollLast() + " ");
         }
-
         bw.flush();
         bw.close();
     }
-
-
 }
