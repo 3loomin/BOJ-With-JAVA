@@ -1,11 +1,9 @@
+package Boj19;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
+public class Boj19_5 {
 
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,7 +17,6 @@ public class Main {
             int b = Integer.parseInt(st.nextToken());
             bw.write(c(b,a) + "\n");
         }
-
 
         bw.flush();
         bw.close();
@@ -36,7 +33,5 @@ public class Main {
             div *= i;
         }
         return fact/div;
-
     }
-
 }
