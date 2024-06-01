@@ -1,11 +1,9 @@
+package Boj20;
+
 import java.io.*;
 import java.util.*;
 
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
+public class Boj20_5 {
 
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,6 +37,4 @@ public class Main {
         bw.flush();
         bw.close();
     }
-
-
 }
