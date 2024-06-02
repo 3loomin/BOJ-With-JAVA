@@ -1,29 +1,27 @@
+package Boj21;
+
 import java.io.*;
-import java.util.*;
+import java.util.StringTokenizer;
 
-
-public class Main {
-
-    public static void main(String[] args) throws IOException {
-        solution();
-
-    }
+public class Boj21_1 {
 
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-
-        int n = Integer.parseInt(st.nextToken());
+        long n = Integer.parseInt(st.nextToken());
+        bw.write(facto(n) + "");
 
 
         bw.flush();
         bw.close();
     }
-    public static String draw(int n){
 
-
+    public static long facto(long n){
+        if(n > 1){
+            return n * facto(--n);
+        }
+        else return 1;
     }
-
 }
