@@ -1,15 +1,11 @@
+package Boj21;
+
 import java.io.*;
-import java.util.*;
+import java.util.HashMap;
 
-
-public class Main {
+public class Boj21_5_ {
     public static HashMap<Integer, String> list = new HashMap<>();
-
-    public static void main(String[] args) throws IOException {
-        solution();
-
-    }
-
+    //Main Class
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -47,5 +43,4 @@ public class Main {
         divide_And_Conquer(start, newSize);
         divide_And_Conquer(start + 2 * newSize, newSize);
     }
-
 }
