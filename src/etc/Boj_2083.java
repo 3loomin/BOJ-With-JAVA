@@ -1,9 +1,8 @@
+package etc;
+
 import java.io.*;
-import java.util.*;
 
-
-public class Main {
-
+public class Boj_2083 {
     public static void main(String[] args) throws IOException {
         solution();
 
@@ -26,5 +25,4 @@ public class Main {
         bw.flush();
         bw.close();
     }
-
 }
