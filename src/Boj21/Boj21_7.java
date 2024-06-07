@@ -1,15 +1,15 @@
+package Boj21;
+
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
-public class Main {
+public class Boj21_7 {
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static int count = 0;
     static List<String> list = new ArrayList<>();
-    public static void main(String[] args) throws IOException {solution();}
+    //Main Class
     public static void solution() throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
