@@ -1,49 +1,46 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 
 public class Main {
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    static int count = 0;
-    static List<String> list = new ArrayList<>();
+
     public static void main(String[] args) throws IOException {solution();}
     public static void solution() throws IOException {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
+        int T = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < T; i++) {
+            st = new StringTokenizer(br.readLine());
+            int n = Integer.parseInt(st.nextToken());
+            int cur = Integer.parseInt(st.nextToken());
+            List<Integer> list = new ArrayList<>();
+            Deque<Integer> deque = new ArrayDeque<>();
+            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < n; j++) {
+                int a = Integer.parseInt(st.nextToken());
+                deque.add(a);
+                list.add(a);
+            }
+             int cnt = 0;
 
-        int start = 1;
-        int end = 3;
-        int via = 2;
+            for (int j = 0; j < list.size(); j++) {
+                if(list.get(j) > list.get(cur)){
+                    cnt++;
+                    deque.removeFirstOccurrence(list.get(j));
+                    list.remove(j);
 
-        hanoi(N, start, end ,via);
-        bw.write(count + "\n");
-        for (int i = 0; i < list.size(); i++) {
-            bw.write(list.get(i));
+                }
+            }
+            cnt += cur;
+
+            bw.write();
+
         }
 
         bw.flush();
         bw.close();
     }
-    public static void hanoi(int N, int start, int end, int via) throws IOException {
-        if (N == 1) {
-            move(1,start,end);
-        } else {
-            hanoi(N-1, start, via, end);
-            move(N, start, end);
-            hanoi(N-1 , via, end , start);
-        }
-    }
-    public static void move(int N, int start, int end ) throws IOException {
-        count++;
-        list.add(start + " " + end + "\n");
-    }
-
 
 }
