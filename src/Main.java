@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {solution();}
-    public static void solution() throws IOException {
+    public static void solution1() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -35,12 +35,22 @@ public class Main {
             }
             cnt += cur;
 
-            bw.write();
-
         }
 
         bw.flush();
         bw.close();
     }
+    public static void solution() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
+        long res = (a+b)*(a-b);
+        bw.write(res+"");
+
+        bw.flush();
+        bw.close();
+    }
 }
