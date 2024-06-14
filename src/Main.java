@@ -4,13 +4,8 @@ import java.util.*;
 
 public class Main {
 
-    static int[][] map;
-    static boolean[][] check;
+
     static int n;
-    static int[] dx = {0,1,0,-1};
-    static int[] dy = {1,0,-1,0};
-    static List<Integer> list;
-    static int cnt;
 
     
     public static void main(String[] args) throws IOException {solution();}
@@ -53,49 +48,43 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        
-        map = new int[n][n];
-        check = new boolean[n][n];
-        list = new ArrayList<>();
-        cnt = 1;
-        
-        for (int i = 0; i < n; i++) {
-            String s = br.readLine();
-            for (int j = 0; j < s.length(); j++) {
-                map[i][j] = s.charAt(j) - '0';
-            }
+        int h = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int s = Integer.parseInt(st.nextToken());
+        int target = Integer.parseInt(br.readLine());
+
+        int tmph = target / 3600;
+        target %= 3600;
+        int tmpm = target / 60;
+        target %= 60;
+        int tmps = target;
+        int mcarry = 0;
+        int hcarry = 0;
+
+        if(target + s >= 60){
+            mcarry = (target + s) / 60;
+            s = (target + s) % 60;
+        } else {
+            s = target + s;
         }
 
-
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if(map[i][j] == 1 && !check[i][j]){
-                    dfs(i,j);
-                    list.add(cnt);
-                    cnt = 1;
-                }
-            }
+        if(mcarry + tmpm + m >= 60){
+            hcarry = (tmpm + m + mcarry) / 60;
+            m = (tmpm + m + mcarry) % 60;
+        } else {
+            m = mcarry + m + tmpm;
         }
-        bw.write(list.size()+"\n");
-        list.sort(Integer::compareTo);
-        for (int a : list) bw.write(a + "\n");
+
+        if(hcarry + tmph + h >= 24){
+           h = (hcarry + tmph + h) % 24;
+        } else {
+            h = hcarry + tmph + h;
+        }
+
+        bw.write(h +" " + m +" " + s );
+
         bw.flush();
         bw.close();
-    }
-
-    private static void dfs(int x, int y) {
-        check[x][y] = true;
-
-        for (int i = 0; i < 4; i++) {
-            int nowX = x + dx[i];
-            int nowY = y + dy[i];
-
-            if (nowX >= 0 && nowY >= 0 && nowX < n && nowY < n && map[nowX][nowY] == 1 && !check[nowX][nowY] ) {
-                cnt++;
-                dfs(nowX, nowY);
-                }
-        }
     }
 
 }
