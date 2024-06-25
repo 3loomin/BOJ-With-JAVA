@@ -1,11 +1,8 @@
+package etc;
+
 import java.io.*;
-import java.util.StringTokenizer;
 
-
-public class Main {
-
-    
-    public static void main(String[] args) throws IOException {solution();}
+public class Boj_4696 {
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -25,5 +22,4 @@ public class Main {
         bw.flush();
         bw.close();
     }
-
 }
