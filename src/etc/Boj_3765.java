@@ -13,6 +13,6 @@ public class Boj_3765 {
             s = br.readLine();
         }
         bw.flush();
-        bw.close();
+        bw.close(); 
     }
 }
