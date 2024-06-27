@@ -12,8 +12,7 @@ public class Boj_4696 {
             for (int i = 0; i < 5 ; i++) {
                 sum += Math.pow(a, i);
             }
-            sum = (double) Math.round(sum * 100) / 100.0;
-
+            sum = Math.round(sum * 100) / 100.0;
             System.out.println(String.format("%.2f", sum));
 
             a = Double.parseDouble(br.readLine());
