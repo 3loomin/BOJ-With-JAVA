@@ -18,7 +18,6 @@ public class Boj_5543 {
         int drink = Math.min(coke, soda);
         bw.write((minb+drink - 50 )+"");
 
-
         bw.flush();
         bw.close();
     }
