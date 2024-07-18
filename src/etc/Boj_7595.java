@@ -1,10 +1,8 @@
+package etc;
+
 import java.io.*;
 
-
-public class Main {
-
-
-    public static void main(String[] args) throws IOException {solution();}
+public class Boj_7595 {
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
