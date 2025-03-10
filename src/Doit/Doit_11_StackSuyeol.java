@@ -1,14 +1,12 @@
-import java.io.*;
-import java.util.*;
+package Doit;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
-public class Main {
-
-
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
-
+public class Doit_11_StackSuyeol {
     public static void solution() throws IOException {
     /*
         Boj_1874_s2
@@ -17,7 +15,7 @@ public class Main {
         수 있다면 push와 pop 연산을 어떤 순서로 수행해야 하는지를 알아내는 프로그램을 작성해 보자.
 
 
-        BufferedWriter 쓰려다가 애먹었다.. 조건에 따라 답의 형태가 달라질 수 있다면 stringbuffer를 쓰자
+        BufferedWriter 쓰려다가 애먹었다.. 조건에 따라 답의 형태가 달라질 수 있다면 Stringbuffer를 쓰자
 
      */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -60,5 +58,4 @@ public class Main {
             System.out.println(bf.toString());
         }
     }
-
 }
