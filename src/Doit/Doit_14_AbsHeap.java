@@ -1,13 +1,12 @@
-import java.io.*;
-import java.util.*;
+package Doit;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.PriorityQueue;
 
-public class Main {
+public class Doit_14_AbsHeap {
 
-
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
     public static void solution() throws IOException {
         /*
         Boj_11286_s1
@@ -26,7 +25,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         // N(정수개수) queue(내보낼 순서를 알고있는 queue)를 양수 음수로 {T 음수 큐 H} 0 {H 양수 큐 T} 로 생각  >> 우선순위 큐로 우선순위를 매기자!
         int N = Integer.parseInt(br.readLine());
-        PriorityQueue<Integer> queue = new PriorityQueue<>((o1,o2) -> {
+        PriorityQueue<Integer> queue = new PriorityQueue<>((o1, o2) -> {
             int first_abs = Math.abs(o1);
             int second_abs = Math.abs(o2);
             if( first_abs == second_abs) return o1 > o2 ? 1 : -1 ; // 절댓값이 같을땐 음수 먼저
