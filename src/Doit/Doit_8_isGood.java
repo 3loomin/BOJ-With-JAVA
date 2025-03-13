@@ -17,48 +17,62 @@ public class Doit_8_isGood {
             핵심: 투 포인터
             O(N^2)
          */
+        /*
+            N(입력)
+            for (N만큼) {
+                arr(입력) 10억까지임 제발 입력값좀 봐라
+            }
+            arr 정렬
+
+            for(k 0~n까지 반복){
+                변수 초기화 하기 (찾고자 하는 값 find, 투 포인터(i , j))
+                while(i<j){
+                    sum = A[i] + A[j]
+                    if( sum == 찾고자 하는 값){
+                        두 포인터가 k가 아닐때 count++, while 문 탈출
+                        두 포인터가 k일 때 i , j 갱신
+
+                    {
+                    else if(sum < 찾고자 하는 값) i 증가
+                    else j 감소
+            }
+         */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        long[] a = new long[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < n; i++){
-            a[i] = Integer.parseInt(st.nextToken());
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = Long.parseLong(st.nextToken());
         }
-        Arrays.sort(a);
-
+        Arrays.sort(arr);
         int count = 0;
 
-        for(int k = 0; k < n; k++){
-            if(isGood(a,a[k],k)) count++;
-        }
-        bw.write(count +"");
-        bw.flush();
-        bw.close();
-
-    }
-    public static boolean isGood(long[] a, long find, int find_idx){
-        long sum = 0;
-        int start_idx = 0;
-        int end_idx = a.length - 1;
-        while(start_idx < end_idx){
-            sum = a[start_idx] + a[end_idx];
-            if(sum > find) end_idx--;
-            else if(sum < find) start_idx++;
-            else{
-                // 자신은 좋은 수가 안되기 때문에 그 경우를 걸러 줘야함
-                if(start_idx != find_idx && end_idx != find_idx){
-                    return true;
-                }
-                else if (start_idx == end_idx){
-                    start_idx++;
-                }
-                else if(end_idx == find_idx){
-                    end_idx--;
+        for (int k = 0; k < n; k++) {
+            long find = arr[k];
+            int i = 0;
+            int j = n - 1;
+            while (i < j) {
+                long sum = arr[i] + arr[j];
+                if (sum == find) {
+                    if (i != k && j != k) {
+                        count++;
+                        break;
+                    } else if (i == k) {
+                        i++;
+                    } else if (j == k) {
+                        j--;
+                    }
+                } else if (sum < find) {
+                    i++;
+                } else {
+                    j--;
                 }
             }
         }
-        return false;
+        bw.write(count + "");
+        bw.flush();
+        bw.close();
     }
 }

@@ -2,51 +2,56 @@ package Doit;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
 public class Doit_7_Jumong {
     public static void solution() throws IOException {
         /*
-            Boj_1940
-            배열과 숫자 m 이 주어지고 배열의 값 두개의 합이 m과 같은 경우의 수를 구하라
+        N(입력)M(입력)arr(입력)
+        2 7 4 1 5 3
+        배열 정렬(arr)
+        1 2 3 4 5 7
 
-            핵심: 투포인터
-            1/ 3/ 4/ 7/ 8/ 9/ , m = 10
+        start는 맨처음 end는 맨 뒤 로 초기화
+        While(start < end)
+            sum = arr[start] + arr[end]
+            if(sum > m) end를 하나 전으로
+            if(sum < m) start를 하나 뒤로
+            sum이 N과 같다면 count 증가
+        출력
          */
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+        int[] arr = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int n = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        int m = Integer.parseInt(st.nextToken());
-
-        List<Integer> list = new ArrayList<>();
-
-        st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++){
-            list.add(Integer.valueOf(st.nextToken()));
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        list.sort(Integer::compareTo);
-        int sum = 0;
+        Arrays.sort(arr);
+
         int start = 0;
         int end = n - 1;
         int count = 0;
         while(start < end){
-            sum = list.get(start) + list.get(end);
-            if(sum < m) start++;
-            else if(sum > m) end--;
+            int sum = arr[start] + arr[end];
+            if(sum > m){
+                end--;
+            }
+            else if(sum < m){
+                start++;
+            }
             else{
                 count++;
                 start++;
                 end--;
             }
         }
-
-        bw.write(count+ "");
+        bw.write(count+"");
         bw.flush();
         bw.close();
-
     }
 }
