@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import static java.util.Collections.swap;
+
 
 public class Main {
 
@@ -10,6 +12,7 @@ public class Main {
     }
     public static void solution() throws IOException {
         /*
+
          */
     }
 }
