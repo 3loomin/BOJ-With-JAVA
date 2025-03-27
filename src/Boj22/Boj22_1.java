@@ -1,16 +1,11 @@
+package Boj22;
+
 import java.io.*;
-import java.util.*;
+import java.util.StringTokenizer;
 
-import static java.util.Collections.swap;
-
-
-public class Main {
+public class Boj22_1 {
     public static int[] arr;
     public static boolean[] visit;
-
-    public static void main(String[] args) throws IOException {
-        solution();
-    }
     public static void solution() throws IOException {
         /*
         Boj_15649_s3 백트래킹 N과 M
